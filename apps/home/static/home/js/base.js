@@ -700,35 +700,35 @@ App.onUserLoad = function(callback) {
 
 App.refreshUser = function(id, callback) {
     callback = callback || function() {};
-    // $.ajax({
-    //     url: App.api + '/api/session',
-    //     success: function(user) {
-    //         App.actor = user;
-    //         var impersonate = App.impersonate(App.param('impersonate'));
-    //         if (impersonate) {
-    //             $.ajax({
-    //                 url: App.api + '/api/User/'+ impersonate,
-    //                 success: success,
-    //                 error: error
-    //             });
+    $.ajax({
+        url: App.api + '/api/session',
+        success: function(user) {
+            App.actor = user;
+            var impersonate = App.impersonate(App.param('impersonate'));
+            if (impersonate) {
+                $.ajax({
+                    url: App.api + '/api/User/'+ impersonate,
+                    success: success,
+                    error: error
+                });
 
-    //             App.onUserLoad(function() {
-    //                 $('body').append(App.template('alert')());
-    //                 $('body').on('click', '#alert', function() {
-    //                     var msg = _('You are impersonating <code><%-a%></code> as the user <code><%-b%></code>. <a href="?impersonate=0">Stop impersonating</a>.').template({
-    //                         a: impersonate,
-    //                         b: App.actor.id
-    //                     });
-    //                     Views.modal.show('confirm', msg);
-    //                     return false;
-    //                 });
-    //             });
-    //         } else {
-    //             success(user);
-    //         }
-    //     },
-    //     error: error
-    // });
+                App.onUserLoad(function() {
+                    $('body').append(App.template('alert')());
+                    $('body').on('click', '#alert', function() {
+                        var msg = _('You are impersonating <code><%-a%></code> as the user <code><%-b%></code>. <a href="?impersonate=0">Stop impersonating</a>.').template({
+                            a: impersonate,
+                            b: App.actor.id
+                        });
+                        Views.modal.show('confirm', msg);
+                        return false;
+                    });
+                });
+            } else {
+                success(user);
+            }
+        },
+        error: error
+    });
 
 
     function success(user) {
