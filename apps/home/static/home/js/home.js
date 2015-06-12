@@ -11,7 +11,7 @@ if (window.screen.width > 640) {
 else {
     $('.js-fullheight').css('height', ($(window).height()*50/100));
 }
-console.log(window.screen.width)
+
 $('.js-works').on('click', function(e) {
     e.preventDefault();
     $('html,body').animate({scrollTop: ($('#developers').offset().top - fixheader)}, 300);
@@ -77,15 +77,3 @@ function autoslide() {
         pager.find('a').first().trigger('click');
     }
 }
-
-var myVideo = document.getElementById('editor-video');
-if (typeof myVideo.loop === 'boolean') { // loop supported
-  myVideo.loop = true;
-} else { // loop property not supported
-  myVideo.addEventListener('ended', function () {
-    this.currentTime = 0;
-    this.play();
-  }, false);
-}
-
-myVideo.play();

@@ -24,9 +24,7 @@ $(function() {
         
     // Hiring smart people
     if (typeof console !== 'undefined' && typeof console.log === 'function' && !window.test) {
-        console.log('\r\n%c                     *      .--.\r\n%c                           \/ \/  `\r\n%c          +               | |\r\n%c                 \'         \\ \\__,\r\n%c             *          +   \'--\'  *\r\n%c                 +   \/\\\r\n%c    +              .\'  \'.   *\r\n%c           *      \/======\\      +\r\n%c                 ;:.  _   ;\r\n%c                 |:. (_)  |\r\n%c                 |:.  _   |\r\n%c       +         |:. (_)  |          *\r\n%c                 ;:.      ;\r\n%c               .\' \\:.    \/ `.\r\n%c              \/ .-\'\':._.\'`-. \\\r\n%c              |\/    \/||\\    \\|\r\n%c            _..--\"\"\"````\"\"\"--.._\r\n%c      _.-\'``                    ``\'-._\r\n%c    -\'         %cHello, explorer%c        \'-\r\n%c' +
-        '\n       Curious? http://mapbox.com/jobs',
-        'color:#D0E3F1','color:#D0E3F1','color:#C0DAEC','color:#C0DAEC','color:#B0D1E8','color:#B0D1E8','color:#A1C7E3','color:#A1C7E3','color:#91BEDE','color:#91BEDE','color:#81B5D9','color:#81B5D9','color:#72ABD5','color:#72ABD5','color:#62A2D0','color:#62A2D0','color:#5299CB','color:#5299CB','color:#4390C7','color:#4390C7', 'color:#4390C7', 'color: #000000');
+        console.log("博凯实业");
     }
 
     $('form#newsletter').submit(function(ev) {
@@ -702,35 +700,35 @@ App.onUserLoad = function(callback) {
 
 App.refreshUser = function(id, callback) {
     callback = callback || function() {};
-    $.ajax({
-        url: App.api + '/api/session',
-        success: function(user) {
-            App.actor = user;
-            var impersonate = App.impersonate(App.param('impersonate'));
-            if (impersonate) {
-                $.ajax({
-                    url: App.api + '/api/User/'+ impersonate,
-                    success: success,
-                    error: error
-                });
+    // $.ajax({
+    //     url: App.api + '/api/session',
+    //     success: function(user) {
+    //         App.actor = user;
+    //         var impersonate = App.impersonate(App.param('impersonate'));
+    //         if (impersonate) {
+    //             $.ajax({
+    //                 url: App.api + '/api/User/'+ impersonate,
+    //                 success: success,
+    //                 error: error
+    //             });
 
-                App.onUserLoad(function() {
-                    $('body').append(App.template('alert')());
-                    $('body').on('click', '#alert', function() {
-                        var msg = _('You are impersonating <code><%-a%></code> as the user <code><%-b%></code>. <a href="?impersonate=0">Stop impersonating</a>.').template({
-                            a: impersonate,
-                            b: App.actor.id
-                        });
-                        Views.modal.show('confirm', msg);
-                        return false;
-                    });
-                });
-            } else {
-                success(user);
-            }
-        },
-        error: error
-    });
+    //             App.onUserLoad(function() {
+    //                 $('body').append(App.template('alert')());
+    //                 $('body').on('click', '#alert', function() {
+    //                     var msg = _('You are impersonating <code><%-a%></code> as the user <code><%-b%></code>. <a href="?impersonate=0">Stop impersonating</a>.').template({
+    //                         a: impersonate,
+    //                         b: App.actor.id
+    //                     });
+    //                     Views.modal.show('confirm', msg);
+    //                     return false;
+    //                 });
+    //             });
+    //         } else {
+    //             success(user);
+    //         }
+    //     },
+    //     error: error
+    // });
 
 
     function success(user) {

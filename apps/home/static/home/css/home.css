@@ -692,3 +692,16 @@ for performance
     background-position-x:center;
     }
 }
+
+#product_area {
+  background-color: #ED1E29;
+}
+
+#product_area:hover {
+  background-color: #930008;
+}
+
+.product_star {
+  background-color: black;
+  background-image: linear-gradient(to top, #ED1E29, transparent);
+}
