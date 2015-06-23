@@ -1,8 +1,13 @@
 /* Base candidates
 -------------------------------------------------- */
 #menu {
-  background-color: rgb(80, 84, 87);
+  background-color: black;
 }
+
+#menu a {
+  color: white;
+}
+
 .dark .stroke  { border: 2px solid rgba(255,255,255,.25);}
 
 label.inline {
@@ -251,9 +256,9 @@ input[type=text].transparent:hover { background: transparent;}
     left: 0;
     right: 0;
   }
-  .masthead nav { background: rgb(80, 84, 87);}
-  .masthead nav.active { background: rgb(80, 84, 87);}
-  .dropdown-button.active::after {background: rgb(80, 84, 87);
+  .masthead nav { background: #930008;background-image: linear-gradient(to top, #ED1E29, transparent);};
+  .masthead nav.active { background: #930008;background-image: linear-gradient(to top, #ED1E29, transparent);}
+/*  .dropdown-button.active::after {background: rgb(80, 84, 87);
     content: '';
     display: block;
     position: relative;
@@ -266,7 +271,7 @@ input[type=text].transparent:hover { background: transparent;}
     border-right: 10px solid transparent;
     border-bottom: 10px solid #95979B;
     margin: auto;
-  }
+  }*/
 }
 
 .masthead-tooltip:hover:after {
