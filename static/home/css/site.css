@@ -1,5 +1,12 @@
 /* Base candidates
 -------------------------------------------------- */
+#menu {
+  background-color: black;
+}
+
+#menu a {
+  color: white;
+}
 
 .dark .stroke  { border: 2px solid rgba(255,255,255,.25);}
 
@@ -216,9 +223,8 @@ input[type=text].transparent:hover { background: transparent;}
 
   .dropdown-menu {
     position: fixed;
-    text-align: left;
+    text-align: center;
     top: 60px;
-    bottom: 0;
     opacity: 0;
     width: 100%;
     -webkit-transition:opacity .125s, -webkit-transform 0 .15s;
@@ -228,7 +234,7 @@ input[type=text].transparent:hover { background: transparent;}
   }
 
   .dropdown-menu.active {
-    opacity: 1;
+    opacity: 0.8;
     -webkit-transform:translateY(0%);
        -moz-transform:translateY(0%);
         -ms-transform:translateY(0%);
@@ -250,9 +256,9 @@ input[type=text].transparent:hover { background: transparent;}
     left: 0;
     right: 0;
   }
-  .masthead nav { background: #3887be;}
-  .masthead nav.active { background:#3bb2d0; }
-  .dropdown-button.active::after {
+  .masthead nav { background: #930008;background-image: linear-gradient(to top, #ED1E29, transparent);};
+  .masthead nav.active { background: #930008;background-image: linear-gradient(to top, #ED1E29, transparent);}
+/*  .dropdown-button.active::after {background: rgb(80, 84, 87);
     content: '';
     display: block;
     position: relative;
@@ -263,9 +269,9 @@ input[type=text].transparent:hover { background: transparent;}
     height: 0;
     border-left: 10px solid transparent;
     border-right: 10px solid transparent;
-    border-bottom: 10px solid #3887be;
+    border-bottom: 10px solid #95979B;
     margin: auto;
-  }
+  }*/
 }
 
 .masthead-tooltip:hover:after {
@@ -1133,7 +1139,7 @@ a[class*='press-logo-']:hover {
   top: 50px;
   left: 0px;
   z-index: -1;
-  font-family:'Brandon', sans-serif;
+  font-family: Microsoft YaHei;
   font-size: 15px;
   text-transform: uppercase;
   letter-spacing: 2px;

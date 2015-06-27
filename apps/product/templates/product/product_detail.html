@@ -1,0 +1,136 @@
+<!DOCTYPE html >
+<html>
+<head>
+  
+  <meta charset='UTF-8'/>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge' />
+  <meta name='robots' content='index'/>
+  <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+  
+  <title>博凯实业</title>
+
+  <meta class='swiftype' name='title' data-type='string' content='Mapbox' />
+  <meta class='swiftype' name='type' data-type='enum' content='site' />
+  <meta class='swiftype' name='info' data-type='string' content='site' />
+  
+
+  
+
+  <link href='/static/home/css/base.css' rel='stylesheet' />
+  <link href='/static/home/css/site.css' rel='stylesheet' />
+  <!--[if IE 9]><link href='/css/site-ie9.css' rel='stylesheet' /><![endif]-->
+  <link rel='shortcut icon' href='/img/favicon.ico' type='image/x-icon' />
+  <link rel='alternate' type='application/rss+xml' title='RSS' href='/blog/blog.rss' />
+  <!-- <link href='https://api.tiles.mapbox.com/mapbox.js/v2.1.8/mapbox.css' rel='stylesheet' /> -->
+
+  <!--[if lt IE 9 ]><script src='/js/redirect-ie.js'></script><![endif]-->
+
+  <script src="http://lib.sinaapp.com/js/jquery/1.9.1/jquery-1.9.1.min.js"></script>
+  <script src='/static/home/js/base.js'></script>
+  
+  <link href='/static/home/css/home.css' rel='stylesheet' />
+<meta name="bitly-verification" content="1cabb779add9"/>
+
+</head>
+
+<body class=' full bleed animate user-loaded'>
+<div class='page-content'>
+
+<div class="masthead show-in-loaded col12 clearfix  dark" data-swiftype-index="false">
+  <div class="clearfix" style="background: #930008;background-image: linear-gradient(to top, #ED1E29, transparent);">
+    <nav class="limiter text-right pad2y contain animate clearfix noprint">
+      <a class="fl mb-logo" href="/"  style="color:white;background:none;"><h2>博凯实业</h2></a>
+      <div id="nav">
+        <div class="z10 strong small pad0y space primary hide-mobile">
+          <a href="/product/list/" class="primary-nav-button inline pad1x pad0y round active">产品</a>
+          <a href="/service/" class="primary-nav-button inline pad1x pad0y round ">服务</a>
+          <a href="/case/" class="primary-nav-button inline pad1x pad0y round ">案例</a>
+          <a href="/civilization/" class="primary-nav-button inline pad1x pad0y round ">文化</a>
+          <a href="/aboutus/" class="primary-nav-button inline pad1x pad0y round ">关于我们</a>
+        </div>
+        <div class="show-mobile contain dropdown-container pin-topright">
+          <a href="#menu" class="dark contain z1 big inline icon menu round quiet dropdown-button js-dropdown-button pin-right"></a>
+          <div id="menu" class="js-dropdown-menu scroll-v dropdown-menu offcanvas-top fill-dark clip col12 pin-top animate">
+            <div class="mobile-cols pad4y keyline-bottom clearfix">
+                <a class="pad1 block strong col6" href="/product/list/">产品</a>
+                <a class="pad1 block strong col6" href="/service/">服务</a>
+                <a class="pad1 block strong col6" href="/case/">案例</a>
+                <a class="pad1 block strong col6" href="/civilization/">文化</a>
+                <a class="pad1 block strong col6 signin" href="aboutus">关于我们</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+</div>
+<script src='/static/product/js/qrcode.min.js'></script>
+<div class=''>
+<!-- Start header -->
+<div class='splash dark clearfix clip' style="background-color:black;background-image: linear-gradient(to bottom, #3A1012, transparent);">
+    <div class="hide-in-docs hide-mobile col4 center  pin-topright fixed" style="padding-top:80px;position: fixed;">
+        <div class="col6" id="qrcode" style="border: solid 8px;"></div>
+        <script type="text/javascript">
+          new QRCode(document.getElementById("qrcode"), window.location.href);
+        </script>
+        <div class="clo6 center">
+          <br>
+          <br>
+          <br>
+          <h3>扫描二维码</h3>
+          <h3>在手机上查看</h3>
+        </div>      
+      </div>
+  <div class='limiter clearfix contain'>
+      <ul class="clearfix">
+      {% for image in product.get_all_image_url %}
+        <li class="col12 center clip contain">
+          <img src="{{ image }}">
+        </li>
+      {% empty %}
+          <li>暂无图片.</li>
+      {% endfor %}                              
+      </ul>
+  </div>
+</div>
+
+<div class='footer footer-in-docs clearfix contain hide-mobile fill-light' data-swiftype-index='false' style="border-top: solid 1px;border-color: rgb(201, 208, 213);">
+  <div class='limiter clearfix'>
+    <div class='footer-in-docs footer-cols-in-docs clearfix col12 pad8y small'>
+      <div class='hide-in-docs col4'>
+        <h3 class='space-bottom1'>Overview</h3>       
+        <a id='footer-design' class='space-bottom0 quiet col12 strong' href='/product/list/'>产品</a>       
+        <a id='footer-data' class='space-bottom0 quiet col12 strong' href='/service/'>服务</a>        
+        <a id='footer-showcase' class='space-bottom0 quiet col12 strong' href='/case/'>案例</a>       
+        <a id='footer-enterprise' class='space-bottom0 quiet col12 strong' href='/civilization/'>文化</a>              
+      </div>
+      <div class="hide-in-docs col4 center contain">
+        <img class="col6" src="/static/home/img/qrcode_1.png">
+        <div class="clo6 center">
+          <br>
+          <br>
+          <br>
+          <h3>扫描二维码</h3>
+          <h3>关注我们</h3>
+        </div>       
+      </div>
+      <div class='hide-in-docs col2'>&nbsp;</div>
+      <div class='hide-in-docs col2'>
+        <h3 class='space-bottom1'>About us</h3>        
+        <a id='footer-design' class='space-bottom0 quiet col12 strong' href='/aboutus/#introduction'>公司简介</a>        
+        <a id='footer-data' class='space-bottom0 quiet col12 strong' href='/aboutus/#zizhi'>公司资质</a>       
+        <a id='footer-showcase' class='space-bottom0 quiet col12 strong' href='/aboutus/#contact_us'>联系我们</a>       
+        <a id='footer-enterprise' class='space-bottom0 quiet col12 strong' href='/enterprise/'>常见问题</a>     
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class='footer-in-docs terms-in-docs col12 center footer-copyright small pad4 noprint fill-light contain' data-swiftype-index='false'>
+    &copy; 博凯实业
+</div>
+
+<div id='modal-content' class='animate modal modal-content'></div>
+</div>
+</body>
+</html>

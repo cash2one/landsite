@@ -283,7 +283,7 @@ for performance
 ------------------------------------------------------- */
 
 .mobile-maps-graphic {
-  background: url(../img/mobile/product2.png) center bottom no-repeat;
+  background: url(../img/product1.png) center bottom no-repeat;
   background-size: contain;
   left: -4%;
 }
@@ -314,7 +314,8 @@ for performance
 }
 @media only screen and (max-width:720px) {
   .mobile-maps-graphic {
-    margin-top: -160px;
+    margin-top: -320px;
+    top: 40px;
   }
 }
 @media only screen and (max-width:400px) {
@@ -705,3 +706,7 @@ for performance
   background-color: black;
   background-image: linear-gradient(to top, #ED1E29, transparent);
 }
+
+/*.dropdown-menu {
+  transform: translate(-100%);
+}*/

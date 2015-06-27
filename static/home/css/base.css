@@ -55,7 +55,7 @@ button,
 button::-moz-focus-inner {
   border: 0;
   padding: 0;
-  font:15px/20px 'Open Sans', sans-serif;
+  font:15px/20px Microsoft YaHei, 'Open Sans', sans-serif;
 }
 
 /* @FontFace
@@ -102,7 +102,7 @@ input,
 textarea {
   color:#404040;
   color:rgba(0,0,0,0.75);
-  font:15px/20px 'Open Sans', sans-serif;
+  font:15px/20px Microsoft YaHei, 'Open Sans', sans-serif;
   -webkit-font-smoothing:antialiased;
   }
 
@@ -115,7 +115,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family:'Open Sans Bold', sans-serif;
+  font-family:Microsoft YaHei, 'Open Sans Bold', sans-serif;
   font-weight:normal;
   margin:0;
   }
@@ -126,7 +126,7 @@ em h3, h3 em,
 em h4, h4 em,
 em h5, h5 em,
 em h6, h6 em {
-  font-family:'Open Sans Bold Italic', sans-serif;
+  font-family:Microsoft YaHei, 'Open Sans Bold Italic', sans-serif;
   }
 
 h1 {
@@ -157,7 +157,7 @@ p:last-child { margin-bottom:0; }
 small,
 .prose.small,
 .small {
-  font-size:12px;
+  font-size:14px;
   line-height:20px;
   letter-spacing:0;
   }
@@ -174,11 +174,11 @@ small { display:block; }
 
 .strong,
 strong {
-  font-family:'Open Sans Bold', sans-serif;
+  font-family:Microsoft YaHei, 'Open Sans Bold', sans-serif;
   font-weight:normal;
   }
   strong em,
-  em strong { font-family:'Open Sans Bold Italic', sans-serif; }
+  em strong { font-family:Microsoft YaHei, 'Open Sans Bold Italic', sans-serif; }
 
 address,
 em {
@@ -190,7 +190,7 @@ em {
 h1.fancy,
 h2.fancy,
 h3.fancy {
-  font-family:'Brandon', sans-serif;
+  font-family:Microsoft YaHei, 'Brandon', sans-serif;
   }
 
 h1.fancy {
@@ -220,7 +220,7 @@ h3.fancy {
 h1.futura,
 h2.futura,
 h3.futura {
-  font-family:'Brandon', sans-serif;
+  font-family:Microsoft YaHei, 'Brandon', sans-serif;
   }
 
 h1.futura {
@@ -298,7 +298,7 @@ a.quiet.dark.active, a.quiet.dark:hover { color:rgba(255,255,255,0.5); }
   white-space:nowrap;
   text-overflow:ellipsis;
   /* Protects button metrics in .prose context */
-  font-family:'Open Sans Bold', sans-serif;
+  font-family:Microsoft YaHei, 'Open Sans Bold', sans-serif;
   line-height:20px;
   font-size:12px;
   -webkit-appearance:none;
@@ -551,7 +551,7 @@ a.quiet.dark.active, a.quiet.dark:hover { color:rgba(255,255,255,0.5); }
     border-bottom:1px solid rgba(0,0,0,0.25);
     background:transparent;
     color:rgba(0,0,0,.5);
-    font-family:'Open Sans Bold', sans-serif;
+    font-family:Microsoft YaHei, 'Open Sans Bold', sans-serif;
     font-size:12px;
     text-align:center;
     display:inline-block;
@@ -990,7 +990,7 @@ form fieldset:last-child {
   }
 
 form fieldset label {
-  font:12px/20px 'Open Sans Bold', sans-serif;
+  font:12px/20px Microsoft YaHei, 'Open Sans Bold', sans-serif;
   display:block;
   margin:0 0 5px;
   }
@@ -1332,7 +1332,7 @@ table {
     border-bottom:1px solid #ddd;
     }
   table th {
-    font-family:'Open Sans Bold', sans-serif;
+    font-family:Microsoft YaHei, 'Open Sans Bold', sans-serif;
     }
   table thead th {
     vertical-align:bottom;
@@ -2602,7 +2602,7 @@ Alternate exists for:
 
 /* Multicolored icons */
 .icon.checkmark:before     {
-  background:transparent url(base@2x.png) 0px 0px no-repeat;
+  background:transparent url(../img/base@2x.png) 0px 0px no-repeat;
   -webkit-background-size:100px 350px;
           background-size:100px 350px;
 }
@@ -2961,6 +2961,8 @@ Alternate exists for:
 .fill-pink        { background-color:#ed6498; }
 .fill-mustard     { background-color:#fbb03b; }
 
+.fill-deep-dark {background: #1F2122;}
+
 .fill-darken0 { background:rgba(0,0,0,0.05); }
 .fill-darken1 { background:rgba(0,0,0,0.25); }
 .fill-darken2 { background:rgba(0,0,0,0.50); }
@@ -2978,7 +2980,7 @@ Alternate exists for:
   }
 
 .mb-logo {
-  background:transparent url(base@2x.png) no-repeat 0 0;
+  background:transparent url(../img/base@2x.png) no-repeat 0 0;
   display:inline-block;
   vertical-align:top;
   height:40px;
@@ -3377,8 +3379,6 @@ img.inline, .inline           { display:inline-block; }
 @media only screen and (max-width:900px) {
   .limiter {
     width: 100%;
-    padding-left:20px;
-    padding-right:20px;
   }
 }
 
@@ -3552,7 +3552,7 @@ img.inline, .inline           { display:inline-block; }
   /* Inline rules */
   body, input, textarea, p {
     color:#000;
-    font:12px/20px 'Open Sans', sans-serif;
+    font:12px/20px Microsoft YaHei, 'Open Sans', sans-serif;
     }
   .prose a:after { content:' [' attr(href) '] '; }
 
