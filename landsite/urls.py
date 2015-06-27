@@ -16,7 +16,7 @@ urlpatterns = [
     url(r'^civilization/', include('apps.civilization.urls')),
     url(r'^service/', include('apps.service.urls')),
     url(r'^case/', include('apps.case.urls')),
+]
+# ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-
-urlpatterns += staticfiles_urlpatterns()
+# urlpatterns += staticfiles_urlpatterns()
