@@ -5,14 +5,12 @@ var underline = $('.js-underline');
 var actionword = $('.js-actionword');
 var repeat;
 var fixheader = ($(window).width() < 640) ? 60 : 0;
-
-analytics.trackLink($('a.js-track-design-link'), 'Clicked Design Link');
-analytics.trackLink($('a.js-track-develop-link'), 'Clicked Develop Link');
-analytics.trackLink($('a.js-track-about-link'), 'Clicked About Link');
-
-$('.js-fullheight').css('height', $(window).height());
-
-analytics.trackLink($('a.js-signup-track'), 'Clicked Homepage Signup Link');
+if (window.screen.width > 640) {
+    $('.js-fullheight').css('height', ($(window).height()*68/100));
+}
+else {
+    $('.js-fullheight').css('height', ($(window).height()*50/100));
+}
 
 $('.js-works').on('click', function(e) {
     e.preventDefault();
@@ -67,9 +65,9 @@ setTimeout(function() {
     $('.js-defer-src').each(function(i, node) {
         var $img = $(node);
         $img.attr('src', $img.data('src'));
-        repeat = window.setInterval(autoslide, 6000);
     });
-}, 3000);
+    repeat = window.setInterval(autoslide, 6000);
+}, 0);
 
 function autoslide() {
     var active = pager.find('.active').next();
@@ -79,15 +77,3 @@ function autoslide() {
         pager.find('a').first().trigger('click');
     }
 }
-
-var myVideo = document.getElementById('editor-video');
-if (typeof myVideo.loop === 'boolean') { // loop supported
-  myVideo.loop = true;
-} else { // loop property not supported
-  myVideo.addEventListener('ended', function () {
-    this.currentTime = 0;
-    this.play();
-  }, false);
-}
-
-myVideo.play();
