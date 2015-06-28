@@ -64,7 +64,15 @@ $('.js-img-carousel img').each(function(i) {
 setTimeout(function() {
     $('.js-defer-src').each(function(i, node) {
         var $img = $(node);
-        $img.attr('src', $img.data('src'));
+        var pre_url = "static/home/img/";
+        if (window.screen.width > 640) {
+            url = pre_url + $img.data('src');
+            $img.attr('src', url);
+        }
+        else {
+            url = pre_url + 'mobile/' + $img.data('src');
+            $img.attr('src', url);
+        }     
     });
     repeat = window.setInterval(autoslide, 6000);
 }, 0);
