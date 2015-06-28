@@ -1,21 +1,14 @@
 <!DOCTYPE html >
 <html>
 <head>
-  
   <meta charset='UTF-8'/>
   <meta http-equiv='X-UA-Compatible' content='IE=edge' />
   <meta name='robots' content='index'/>
   <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
-  
   <title>博凯实业</title>
-
   <meta class='swiftype' name='title' data-type='string' content='Mapbox' />
   <meta class='swiftype' name='type' data-type='enum' content='site' />
   <meta class='swiftype' name='info' data-type='string' content='site' />
-  
-
-  
-
   <link href='/static/home/css/base.css' rel='stylesheet' />
   <link href='/static/home/css/site.css' rel='stylesheet' />
   <!--[if IE 9]><link href='/css/site-ie9.css' rel='stylesheet' /><![endif]-->
@@ -29,8 +22,7 @@
   <script src='/static/home/js/base.js'></script>
   
   <link href='/static/home/css/home.css' rel='stylesheet' />
-<meta name="bitly-verification" content="1cabb779add9"/>
-
+  <meta name="bitly-verification" content="1cabb779add9"/>
 </head>
 
 <body class=' full bleed animate user-loaded'>
@@ -42,9 +34,9 @@
       <a class="fl mb-logo" href="/"  style="color:white;background:none;"><h2>博凯实业</h2></a>
       <div id="nav">
         <div class="z10 strong small pad0y space primary hide-mobile">
-          <a href="/product/list/" class="primary-nav-button inline pad1x pad0y round active">产品</a>
+          <a href="/product/list/" class="primary-nav-button inline pad1x pad0y round ">产品</a>
           <a href="/service/" class="primary-nav-button inline pad1x pad0y round ">服务</a>
-          <a href="/case/list/" class="primary-nav-button inline pad1x pad0y round ">案例</a>
+          <a href="/case/list/" class="primary-nav-button inline pad1x pad0y round active">案例</a>
           <a href="/civilization/" class="primary-nav-button inline pad1x pad0y round ">文化</a>
           <a href="/aboutus/" class="primary-nav-button inline pad1x pad0y round ">关于我们</a>
         </div>
@@ -64,42 +56,45 @@
     </nav>
   </div>
 </div>
-<script src='/static/product/js/qrcode.min.js'></script>
+
 <div class=''>
 <!-- Start header -->
 <div class='splash dark clearfix clip' style="background-color:black;background-image: linear-gradient(to bottom, #3A1012, transparent);">
-    {% if product %}
-    <div class="hide-in-docs hide-mobile col4 center  pin-topright fixed" style="padding-top:80px;position: fixed;">
-        <div class="col6" id="qrcode" style="border: solid 8px;"></div>
-        <script type="text/javascript">
-          new QRCode(document.getElementById("qrcode"), window.location.href);
-        </script>
-        <div class="clo6 center">
-          <br>
-          <br>
-          <br>
-          <h3>扫描二维码</h3>
-          <h3>在手机上查看</h3>
-        </div>      
+  <div class='limiter clearfix contain pad4y'>
+    <div class='quiet pin-topright col12 z1 subnav ' style="  text-align: right;border-bottom: solid 1px;">
+      <a class='secondary-nav-button small inline round strong truncate pad1x pad0y ' href='/case/list'>全部案例</a>
+      {% for category in categorys %}
+      <a class='secondary-nav-button small inline round strong truncate pad1x pad0y ' href='/case/list?category={{ category.id }}'>{{ category.name }}</a> 
+      {% endfor %} 
     </div>
-    <div class='limiter clearfix contain'>
+    <div class="industries-ad pad2y">
       <ul class="clearfix">
-      {% for image in product.get_all_image_url %}
-        <li class="col12 center clip contain">
-          <img src="{{ image }}">
+      {% for case in case_list %}
+        <li class="col2 center clip contain">
+          <a href="/case/detail/{{ case.id }}">
+            <img class="industries-ad-industry  contain naturalresources fill-blue"src="{{ case.get_primary_image_url }}">
+          </a>
         </li>
       {% empty %}
-          <li>暂无图片.</li>
+          <li>暂无产品.</li>
       {% endfor %}                              
       </ul>
     </div>
-    {% else %}
-      <div class='limiter clearfix contain row2'>
-        <ul class="clearfix">
-          <li><h2>未找到此产品.</h2></li>
-        </ul>
-      </div>
-    {% endif %}
+    <div class="pad1x " style="text-align: right;">
+      {% if case_list.has_previous %}
+      <a class="button stroke pad2x rcon prev js-track-design-link space-bottom1" href="?page={{ case_list.previous_page_number }}">pre&nbsp;</a>
+      {% else %}
+      <a class="button stroke pad2x rcon prev js-track-design-link space-bottom1 active" >pre&nbsp;</a>
+      {% endif %}
+      {% if case_list.has_next %}
+      <a class="button stroke pad2x rcon next js-track-design-link space-bottom1" href="?page={{ case_list.next_page_number }}">next</a>
+      {% else %}
+      <a class="button stroke pad2x rcon next js-track-design-link space-bottom1 active" >next</a>
+      {% endif %}
+      
+    </div>
+    <div class='col8 pin-bottomright graphic-splash'></div>
+  </div>
 </div>
 
 <div class='footer footer-in-docs clearfix contain hide-mobile fill-light' data-swiftype-index='false' style="border-top: solid 1px;border-color: rgb(201, 208, 213);">

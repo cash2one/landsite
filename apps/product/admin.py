@@ -18,3 +18,4 @@ admin.site.register(models.Product, ProductAdmin)
 
 admin.site.register(models.ProductImage)
 admin.site.register(models.Category)
+admin.site.register(models.IndexProduct)

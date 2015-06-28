@@ -42,9 +42,9 @@
       <a class="fl mb-logo" href="/"  style="color:white;background:none;"><h2>博凯实业</h2></a>
       <div id="nav">
         <div class="z10 strong small pad0y space primary hide-mobile">
-          <a href="/product/list/" class="primary-nav-button inline pad1x pad0y round active">产品</a>
+          <a href="/product/list/" class="primary-nav-button inline pad1x pad0y round ">产品</a>
           <a href="/service/" class="primary-nav-button inline pad1x pad0y round ">服务</a>
-          <a href="/case/list/" class="primary-nav-button inline pad1x pad0y round ">案例</a>
+          <a href="/case/list/" class="primary-nav-button inline pad1x pad0y round active">案例</a>
           <a href="/civilization/" class="primary-nav-button inline pad1x pad0y round ">文化</a>
           <a href="/aboutus/" class="primary-nav-button inline pad1x pad0y round ">关于我们</a>
         </div>
@@ -68,13 +68,13 @@
 <div class=''>
 <!-- Start header -->
 <div class='splash dark clearfix clip' style="background-color:black;background-image: linear-gradient(to bottom, #3A1012, transparent);">
-    {% if product %}
+    {% if case %}
     <div class="hide-in-docs hide-mobile col4 center  pin-topright fixed" style="padding-top:80px;position: fixed;">
         <div class="col6" id="qrcode" style="border: solid 8px;"></div>
         <script type="text/javascript">
           new QRCode(document.getElementById("qrcode"), window.location.href);
         </script>
-        <div class="clo6 center">
+        <div class="clo6 center row4">
           <br>
           <br>
           <br>
@@ -84,7 +84,7 @@
     </div>
     <div class='limiter clearfix contain'>
       <ul class="clearfix">
-      {% for image in product.get_all_image_url %}
+      {% for image in case.get_all_image_url %}
         <li class="col12 center clip contain">
           <img src="{{ image }}">
         </li>
@@ -96,7 +96,7 @@
     {% else %}
       <div class='limiter clearfix contain row2'>
         <ul class="clearfix">
-          <li><h2>未找到此产品.</h2></li>
+          <li><h2>未找到此案例.</h2></li>
         </ul>
       </div>
     {% endif %}

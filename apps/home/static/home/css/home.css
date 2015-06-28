@@ -283,7 +283,7 @@ for performance
 ------------------------------------------------------- */
 
 .mobile-maps-graphic {
-  background: url(../img/product1.png) center bottom no-repeat;
+  /*background: url(../img/product1.png) center bottom no-repeat;*/
   background-size: contain;
   left: -4%;
 }
