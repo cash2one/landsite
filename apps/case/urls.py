@@ -1,6 +1,7 @@
 from django.conf.urls import url
-from django.views.generic import TemplateView
+from views import CaseListView, CaseDetailView
 
 urlpatterns = [
-    url(r'^', TemplateView.as_view(template_name="case.html")),
+    url(r'^list/?', CaseListView.as_view(), name="case-list"),
+    url(r'^detail/(?P<pk>\d+)/?', CaseDetailView.as_view(), name="case-detail"),
 ]

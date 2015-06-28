@@ -109,3 +109,18 @@ class ProductImage(models.Model):
         for idx, image in enumerate(self.product.images.all()):
             image.display_order = idx
             image.save()
+
+class IndexProduct(models.Model):
+    index_image = models.ImageField(_('IndexImage'), upload_to='index_image', blank=True,
+                              null=True, max_length=255)
+    product = models.ForeignKey("Product", verbose_name=_("product"))
+    description = models.TextField(_('Description'), blank=True)
+
+    def __str__(self):
+        return self.product.name
+
+    class Meta:
+        app_label = "product"
+        ordering = ["id"]
+        verbose_name = _("Index Product")
+        verbose_name_plural = _("Index Products")

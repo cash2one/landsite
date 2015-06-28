@@ -50,7 +50,7 @@
         <div class="z10 strong small pad0y space primary hide-mobile">
           <a href="/product/list/" class="primary-nav-button inline pad1x pad0y round ">产品</a>
           <a href="/service/" class="primary-nav-button inline pad1x pad0y round ">服务</a>
-          <a href="/case/" class="primary-nav-button inline pad1x pad0y round ">案例</a>
+          <a href="/case/list/" class="primary-nav-button inline pad1x pad0y round ">案例</a>
           <a href="/civilization/" class="primary-nav-button inline pad1x pad0y round ">文化</a>
           <a href="/aboutus/" class="primary-nav-button inline pad1x pad0y round ">关于我们</a>
         </div>
@@ -60,7 +60,7 @@
             <div class="mobile-cols pad4y keyline-bottom clearfix">
                 <a class="pad1 block strong col6" href="/product/list/">产品</a>
                 <a class="pad1 block strong col6" href="/service/">服务</a>
-                <a class="pad1 block strong col6" href="/case/">案例</a>
+                <a class="pad1 block strong col6" href="/case/list/">案例</a>
                 <a class="pad1 block strong col6" href="/civilization/">文化</a>
                 <a class="pad1 block strong col6 signin" href="aboutus">关于我们</a>
             </div>
@@ -120,37 +120,19 @@
 </div>
 
 <div class="product_star">
+  {% for product in product_list %}
   <section id="maps-on-mobile" class="dark contain">
     <div class="limiter clearfix pad8y">
       <div class="col4 margin8 prose-big pad8y">
-          <h1 class="">明星产品 &bull; 昆仑红</h1>
-          <br>
-          <p>矿石以枣红色为基本色调，整体花纹分布均匀、和谐，装饰效果呈鲜艳柔和之美感，装饰性能良好。</p>
-          <a class='button stroke pad4x rcon next js-track-design-link space-bottom1' href='/product/detail/2'>查看详情</a>
+          <h1 class="">明星产品 &bull; {{ product.product.name }}</h1>
+          <p>{{ product.description }}</p>
+          <a class='button stroke pad4x rcon next js-track-design-link space-bottom1' href='/product/detail/{{ product.product.id }}'>查看详情</a>
       </div>
-      <div class="col10 row12 pin-bottom noevents mobile-maps-graphic">
-       </div>
-    </div>
-  </section>
-
-  <section id='design' class='contain dark clip'>
-    <div class=''>
-      <div class='limiter clearfix pad8y contain'>
-        <div class='prose prose-big space-bottom4 clearfix'>
-          <h1 class='dark col5 studo-description'>明星产品 &bull; 云雾白</h1>
-        </div>
-        <div class='col5 prose prose-big space-bottom4 studo-description'>
-            <p >
-            花色美观、便于大面积拼接装饰、能够同花色批量供货
-            </p>
-             <a class='button stroke pad4x rcon next js-track-design-link space-bottom1' href='/product/detail/2'>查看详情</a>
-             <div class="hide-mobile"><br><br><br><br><br><br><br><br></div>
-        </div>
-
-        <div class="col11 design pin-right"></div>
+      <div class="col10 row12 pin-bottom noevents mobile-maps-graphic" style="background: url({{ product.index_image.url }}) center bottom no-repeat;background-size: contain;">
       </div>
     </div>
   </section>
+  {% endfor %} 
 </div>
 
 <section class='fill-white contain pad4y white'>
@@ -158,10 +140,9 @@
     <div class='clearfix col12'>
       <div class='z1 col9 prose prose-big'>
         <h1>矿业集群</h1>
-        <p class='quiet block'>
+        <p class='block'>
            丰富矿产资源奠定投资回报根基
         </p>
-         <a id="product_area" class='button storke rcon next pad2x' href='/enterprise'>更多矿区</a>
       </div>
     </div>
   </div>
@@ -172,28 +153,28 @@
           <ul class="clearfix">
           
             <li class="col2 center clip contain">
-              <a href="/industries/naturalresources">
+              <a href="#">
                 <div class="industries-ad-industry  contain naturalresources fill-blue"></div>
                 <h3 class="dark fancy center">青海省海都兰县清水河花岗岩矿</h3>
               </a>
             </li>
           
             <li class="col2 center clip contain">
-              <a href="/industries/security">
+              <a href="#">
                 <div class="industries-ad-industry  contain security fill-blue"></div>
                 <h3 class="dark fancy center">云南省贡山县普豆底铅锌银矿</h3>
               </a>
             </li>
 
             <li class="col2 center clip contain">
-              <a href="/industries/media">
+              <a href="#">
                 <div class="industries-ad-industry  contain media fill-blue"></div>
                 <h3 class="dark fancy center">四川省青川县房石镇轿子顶金矿</h3>
               </a>
             </li>
 
             <li class="col2 center clip contain">
-              <a href="/industries/health">
+              <a href="#">
                 <div class="industries-ad-industry  contain health fill-blue"></div>
                 <h3 class="dark fancy center">四川省康定县吉局乡水塘子铅银矿</h3>
               </a>
@@ -214,7 +195,7 @@
         <h3 class='space-bottom1'>Overview</h3>       
         <a id='footer-design' class='space-bottom0 quiet col12 strong' href='/product/list/'>产品</a>       
         <a id='footer-data' class='space-bottom0 quiet col12 strong' href='/service/'>服务</a>        
-        <a id='footer-showcase' class='space-bottom0 quiet col12 strong' href='/case/'>案例</a>       
+        <a id='footer-showcase' class='space-bottom0 quiet col12 strong' href='/case/list/'>案例</a>       
         <a id='footer-enterprise' class='space-bottom0 quiet col12 strong' href='/civilization/'>文化</a>              
       </div>
       <div class="hide-in-docs col4 center contain">
