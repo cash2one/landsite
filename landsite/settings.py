@@ -92,7 +92,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.contrib.gis.db.backends.postgis',
         'NAME': 'landsite',
-        'USER': 'wrongerror',
+        'USER': 'ubuntu',
         'ATOMIC_REQUESTS': True
     },
 }
