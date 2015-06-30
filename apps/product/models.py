@@ -124,3 +124,19 @@ class IndexProduct(models.Model):
         ordering = ["id"]
         verbose_name = _("Index Product")
         verbose_name_plural = _("Index Products")
+
+from tinymce import models as tinymce_models
+
+class Mine(models.Model):
+    name = models.CharField(_('Name'), max_length=128)
+    image = models.ImageField(_('Image'), upload_to='mine', max_length=255)
+    description = tinymce_models.HTMLField()
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        app_label = "product"
+        ordering = ["id"]
+        verbose_name = _("Mine")
+        verbose_name_plural = _("Mines")

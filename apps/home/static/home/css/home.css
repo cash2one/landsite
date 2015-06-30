@@ -457,18 +457,7 @@ for performance
   transform: scale(1.1); 
 }
 
-.industries-ad-industry.realestate       {  background: url(../img/industries/realestate.jpg) center center no-repeat; background-size: cover }
-.industries-ad-industry.transportation    {  background: url(../img/industries/transportation.jpg) center center no-repeat; background-size: cover }
-.industries-ad-industry.agriculture       {  background: url(../img/industries/agriculture.jpg) center center no-repeat; background-size: cover }
-.industries-ad-industry.social            {  background: url(../img/industries/social.jpg) center center no-repeat; background-size: cover }
-.industries-ad-industry.government        {  background: url(../img/industries/government.jpg) center center no-repeat; background-size: cover }
-.industries-ad-industry.fitnessoutdoors          {  background: url(../img/industries/outdoors.jpg) center center no-repeat; background-size: cover }
-.industries-ad-industry.finance           {  background: url(../img/industries/finance.jpg) center center no-repeat; background-size: cover }
-.industries-ad-industry.insurance         {  background: url(../img/industries/insurance.jpg) center center no-repeat; background-size: cover }
-.industries-ad-industry.naturalresources  {  background: url(../img/industries/product_area1.jpg) center center no-repeat; background-size: cover }
-.industries-ad-industry.security          {  background: url(../img/industries/product_area2.jpg) center center no-repeat; background-size: cover }
-.industries-ad-industry.health            {  background: url(../img/industries/product_area3.jpg) center center no-repeat; background-size: cover }
-.industries-ad-industry.media             {  background: url(../img/industries/product_area4.jpg) center center no-repeat; background-size: cover }
+.industries-ad-industry.naturalresources  {  background: center center no-repeat; background-size: cover }
 
 @media only screen and (max-width:1200px) {
   .industries-ad ul li.col2 {

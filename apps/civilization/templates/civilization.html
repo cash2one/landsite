@@ -152,10 +152,41 @@
   <div class="clearfix contain">
     <div class="space-bottom4 col12">
         <h1 class="pad2y col10 margin2r">文化动态</h1>
-         <p class="prose-big  space-bottom2 col12">暂无。</p>
-      </div>
-      <div class="atlas-graphic col8"></div>
+         <ul class="clearfix">
+        {% for news in news_list %}
+            <li class="col12 center clip contain pad2y">
+                <div class="col4">
+                 <a href="/news/{{ news.id }}">
+                  <img class="industries-ad-industry  contain naturalresources fill-blue"src="{{ news.image.url }}">
+                </a>                 
+                </div>
+                <div class="col8 center clip contain pad4x " style="text-align: left;line-height: 30px;">
+                  <a href="/news/{{ news.id }}" style="color: white;">
+                    <h2>{{ news.title }}</h2>
+                  </a>
+                  <h3 style="color:red;">发布时间：{{ news.date_created }}</h3>
+                  <p style="text-indent: 2em;">{{ news.introduction }}</p>
+              </div>
+            </li>
+       {% empty %}
+          <li>暂无动态.</li>
+       {% endfor %}                  
+        </ul>
+    <div class="pad1x " style="text-align: right;">
+      {% if news_list.has_previous %}
+      <a class="button stroke pad2x rcon prev js-track-design-link space-bottom1" href="?page={{ news_list.previous_page_number }}#active">pre&nbsp;</a>
+      {% else %}
+      <a class="button stroke pad2x rcon prev js-track-design-link space-bottom1 active" >pre&nbsp;</a>
+      {% endif %}
+      {% if news_list.has_next %}
+      <a class="button stroke pad2x rcon next js-track-design-link space-bottom1" href="?page={{ news_list.next_page_number }}#active">next</a>
+      {% else %}
+      <a class="button stroke pad2x rcon next js-track-design-link space-bottom1 active" >next</a>
+      {% endif %}
     </div>
+    </div>
+    <div class="atlas-graphic col8"></div>
+  </div>
   </div>
 </div>
 

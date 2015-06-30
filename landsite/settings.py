@@ -38,6 +38,9 @@ APPEND_SLASH = True
 # Application definition
 
 INSTALLED_APPS = (
+    'grappelli',
+    'filebrowser',
+    'tinymce',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -92,7 +95,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.contrib.gis.db.backends.postgis',
         'NAME': 'landsite',
-        'USER': 'ubuntu',
+        'USER': 'wrongerror',
         'ATOMIC_REQUESTS': True
     },
 }
@@ -132,3 +135,19 @@ STATIC_URL = '/static/'
 # Media Files 
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 MEDIA_URL = '/media/'
+
+#tinymce
+
+TINYMCE_DEFAULT_CONFIG = {
+    'plugins': "table,spellchecker,paste,searchreplace",
+    'theme': "advanced",
+    'cleanup_on_startup': True,
+    'custom_undo_redo_levels': 10,
+    # 'width': 1000,
+    'height': 650,
+}
+TINYMCE_SPELLCHECKER = True
+TINYMCE_COMPRESSOR = True
+TINYMCE_FILEBROWSER = True
+
+FILEBROWSER_DIRECTORY = "uploads/"

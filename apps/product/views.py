@@ -3,7 +3,7 @@ from django.views.generic import View, ListView, DetailView
 from django.shortcuts import render_to_response
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
-from models import Product, Category
+from models import Product, Category, Mine
 
 class ProductListView(View):
     def get(self, request, *args, **kwargs):
@@ -36,6 +36,13 @@ class ProductDetailView(View):
             instance = Product.objects.get(pk=pk)
         except:
             instance = None
-        print instance
-
         return render_to_response('product/product_detail.html', {"product": instance})
+
+class MineDetail(View):
+    def get(self, request, pk, *args, **kwargs):
+        try:
+            instance = Mine.objects.get(pk=pk)
+        except:
+            instance = None
+        print instance.description
+        return render_to_response('product/mine_detail.html', {"mine": instance})

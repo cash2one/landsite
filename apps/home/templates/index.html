@@ -151,36 +151,16 @@
 <section class='contain industries limiter pad2y'>
     <div class="industries-ad">
           <ul class="clearfix">
-          
+          {% for mine in mine_list %}
             <li class="col2 center clip contain">
-              <a href="#">
-                <div class="industries-ad-industry  contain naturalresources fill-blue"></div>
-                <h3 class="dark fancy center">青海省海都兰县清水河花岗岩矿</h3>
+              <a href="/product/mine/{{mine.id}}">
+                <div class="industries-ad-industry  contain naturalresources fill-blue" style="background:url({{ mine.image.url }}) center center no-repeat; background-size:cover;"></div>
+                <h3 class="dark fancy center">{{ mine.name }}</h3>
               </a>
             </li>
-          
-            <li class="col2 center clip contain">
-              <a href="#">
-                <div class="industries-ad-industry  contain security fill-blue"></div>
-                <h3 class="dark fancy center">云南省贡山县普豆底铅锌银矿</h3>
-              </a>
-            </li>
-
-            <li class="col2 center clip contain">
-              <a href="#">
-                <div class="industries-ad-industry  contain media fill-blue"></div>
-                <h3 class="dark fancy center">四川省青川县房石镇轿子顶金矿</h3>
-              </a>
-            </li>
-
-            <li class="col2 center clip contain">
-              <a href="#">
-                <div class="industries-ad-industry  contain health fill-blue"></div>
-                <h3 class="dark fancy center">四川省康定县吉局乡水塘子铅银矿</h3>
-              </a>
-            </li>
-                      
-                   
+          {% empty %}
+            <li>暂无矿区.</li>
+          {% endfor %}                    
           </ul>
     </div>
 </section>
