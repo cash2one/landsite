@@ -5,22 +5,30 @@
   <meta http-equiv='X-UA-Compatible' content='IE=edge' />
   <meta name='robots' content='index'/>
   <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+  
   <title>博凯实业</title>
+
   <meta class='swiftype' name='title' data-type='string' content='Mapbox' />
   <meta class='swiftype' name='type' data-type='enum' content='site' />
   <meta class='swiftype' name='info' data-type='string' content='site' />
   <link href='/static/home/css/base.css' rel='stylesheet' />
   <link href='/static/home/css/site.css' rel='stylesheet' />
-  <!--[if IE 9]><link href='/css/site-ie9.css' rel='stylesheet' /><![endif]-->
-  <link rel='shortcut icon' href='/img/favicon.ico' type='image/x-icon' />
-  <link rel='alternate' type='application/rss+xml' title='RSS' href='/blog/blog.rss' />
-  <!-- <link href='https://api.tiles.mapbox.com/mapbox.js/v2.1.8/mapbox.css' rel='stylesheet' /> -->
-
-  <!--[if lt IE 9 ]><script src='/js/redirect-ie.js'></script><![endif]-->
+  
+  <!--[if lt IE 10]>
+    <link href='/static/home/css/ie.css' rel='stylesheet' />
+  <![endif]-->
 
   <script src="http://lib.sinaapp.com/js/jquery/1.9.1/jquery-1.9.1.min.js"></script>
-  <script src='/static/home/js/base.js'></script>
   
+  <!--[if lt IE 9]>
+    <script type="text/javascript" src="/static/home/js/html5shiv.js"></script>
+  <![endif]-->
+
+  <!--[if (gte IE 6)&(lte IE 8)]>
+    <script type="text/javascript" src="/static/home/js/selectivizr-min.js"></script>
+  <![endif]-->
+
+  <script src='/static/home/js/base.js'></script>
   <link href='/static/home/css/home.css' rel='stylesheet' />
   <meta name="bitly-verification" content="1cabb779add9"/>
 </head>
@@ -29,7 +37,7 @@
 <div class='page-content'>
 
 <div class="masthead show-in-loaded col12 clearfix  dark" data-swiftype-index="false">
-  <div class="clearfix" style="background: #930008;background-image: linear-gradient(to top, #ED1E29, transparent);">
+  <div class="clearfix" id="head-color" style="background: #930008;background-image: linear-gradient(to top, #ED1E29, transparent);">
     <nav class="limiter text-right pad2y contain animate clearfix noprint">
       <a class="fl mb-logo" href="/"  style="color:white;background:none;"><h2>博凯实业</h2></a>
       <div id="nav">
@@ -59,7 +67,7 @@
 
 <div class=''>
 <!-- Start header -->
-<div class='splash dark clearfix clip' style="background-color:black;background-image: linear-gradient(to bottom, #3A1012, transparent);">
+<div class='splash dark clearfix clip ie-gradient' style="background-color:black;background-image: linear-gradient(to bottom, #3A1012, transparent);">
   <div class='limiter clearfix contain pad4y'>
     <div class='quiet pin-topright col12 z1 subnav ' style="  text-align: right;border-bottom: solid 1px;">
       <a class='secondary-nav-button small inline round strong truncate pad1x pad0y ' href='/case/list'>全部案例</a>
@@ -72,7 +80,31 @@
       {% for case in case_list %}
         <li class="col2 center clip contain">
           <a href="/case/detail/{{ case.id }}">
-            <div class="industries-ad-industry  contain naturalresources fill-blue" style="background:url({{ case.get_primary_image_url }}) center center no-repeat; background-size:cover;"></div>
+            <!--[if lt IE 10]>
+              <style type="text/css">
+                #case{{case.id}}{
+                  background:none!important;
+                  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(
+                  src={{ case.get_primary_image_url }},
+                  sizingMethod='scale');
+
+                  -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(
+                  src={{ case.get_primary_image_url}},
+                  sizingMethod='scale')";
+                }  
+                #case{{case.id}}:hover {
+                  background:none!important;
+                  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(
+                  src={{ case.get_primary_image_url}},
+                  sizingMethod='auto expand');
+
+                  -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(
+                  src={{ case.get_primary_image_url }},
+                  sizingMethod='auto expand')";
+                }
+              </style>
+            <![endif]-->
+            <div class="industries-ad-industry  contain naturalresources fill-blue" id="case{{ case.id }}" style="background:url({{ case.get_primary_image_url }}) center center no-repeat; background-size:cover;"></div>
           </a>
         </li>
       {% empty %}

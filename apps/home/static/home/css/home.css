@@ -283,8 +283,6 @@ for performance
 ------------------------------------------------------- */
 
 .mobile-maps-graphic {
-  /*background: url(../img/product1.png) center bottom no-repeat;*/
-  background-size: contain;
   left: -4%;
 }
 
@@ -695,7 +693,3 @@ for performance
   background-color: black;
   background-image: linear-gradient(to top, #ED1E29, transparent);
 }
-
-/*.dropdown-menu {
-  transform: translate(-100%);
-}*/

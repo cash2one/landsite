@@ -1,0 +1,83 @@
+*, *:after, *:before {
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    /**behavior: url(/static/home/js/boxsizing.htc);*/
+  }
+
+.dot {
+  border-radius: 50%;
+  behavior: url(/static/home/js/PIE.htc);
+}
+
+#head-color {
+  -pie-background: linear-gradient(to bottom, #930008, #ED1E29);
+  behavior: url(/static/home/js/PIE.htc);
+}
+
+.dark a, a.dark, .dark a > code {
+  color: #919191;
+}
+
+.product_star {
+  -pie-background: linear-gradient(to bottom, black, #ED1E29);
+  behavior: url(/static/home/js/PIE.htc);
+}
+
+.ie-gradient {
+  -pie-background: linear-gradient(to bottom, black, #3A1012);
+  behavior: url(/static/home/js/PIE.htc);
+}
+
+.developer-tools-graphic.mapbox-js     { 
+    background:none!important;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(
+    src='/static/home/img/tab1.png',
+    sizingMethod='scale');
+
+    -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(
+    src='/static/home/img/tab1.png',
+    sizingMethod='scale')";
+}
+
+.developer-tools-graphic.ios-sdk       { 
+    background:none!important;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(
+    src='/static/home/img/tab2.png',
+    sizingMethod='scale');
+
+    -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(
+    src='/static/home/img/tab2.png',
+    sizingMethod='scale')";
+}
+
+.developer-tools-graphic.android-sdk   { 
+    background:none!important;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(
+    src='/static/home/img/tab3.png',
+    sizingMethod='scale');
+
+    -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(
+    src='/static/home/img/tab4.png',
+    sizingMethod='scale')";
+}
+
+.developer-tools-graphic.maps-api      { 
+    background:none!important;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(
+    src='/static/home/img/tab4.png',
+    sizingMethod='scale');
+
+    -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(
+    src='/static/home/img/tab4.png',
+    sizingMethod='scale')";
+}
+
+.dark .button.stroke {
+  border: solid 2px;
+  color: white;
+}
+
+.dark .button.stroke:hover, .dark .button.stroke.active {
+  background-color: transparent;
+  color: #919191;
+}

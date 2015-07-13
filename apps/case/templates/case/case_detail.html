@@ -1,7 +1,6 @@
 <!DOCTYPE html >
 <html>
 <head>
-  
   <meta charset='UTF-8'/>
   <meta http-equiv='X-UA-Compatible' content='IE=edge' />
   <meta name='robots' content='index'/>
@@ -12,32 +11,33 @@
   <meta class='swiftype' name='title' data-type='string' content='Mapbox' />
   <meta class='swiftype' name='type' data-type='enum' content='site' />
   <meta class='swiftype' name='info' data-type='string' content='site' />
-  
-
-  
-
   <link href='/static/home/css/base.css' rel='stylesheet' />
   <link href='/static/home/css/site.css' rel='stylesheet' />
-  <!--[if IE 9]><link href='/css/site-ie9.css' rel='stylesheet' /><![endif]-->
-  <link rel='shortcut icon' href='/img/favicon.ico' type='image/x-icon' />
-  <link rel='alternate' type='application/rss+xml' title='RSS' href='/blog/blog.rss' />
-  <!-- <link href='https://api.tiles.mapbox.com/mapbox.js/v2.1.8/mapbox.css' rel='stylesheet' /> -->
-
-  <!--[if lt IE 9 ]><script src='/js/redirect-ie.js'></script><![endif]-->
+  
+  <!--[if lt IE 10]>
+    <link href='/static/home/css/ie.css' rel='stylesheet' />
+  <![endif]-->
 
   <script src="http://lib.sinaapp.com/js/jquery/1.9.1/jquery-1.9.1.min.js"></script>
-  <script src='/static/home/js/base.js'></script>
   
-  <link href='/static/home/css/home.css' rel='stylesheet' />
-<meta name="bitly-verification" content="1cabb779add9"/>
+  <!--[if lt IE 9]>
+    <script type="text/javascript" src="/static/home/js/html5shiv.js"></script>
+  <![endif]-->
 
+  <!--[if (gte IE 6)&(lte IE 8)]>
+    <script type="text/javascript" src="/static/home/js/selectivizr-min.js"></script>
+  <![endif]-->
+
+  <script src='/static/home/js/base.js'></script>
+  <link href='/static/home/css/home.css' rel='stylesheet' />
+  <meta name="bitly-verification" content="1cabb779add9"/>
 </head>
 
 <body class=' full bleed animate user-loaded'>
 <div class='page-content'>
 
 <div class="masthead show-in-loaded col12 clearfix  dark" data-swiftype-index="false">
-  <div class="clearfix" style="background: #930008;background-image: linear-gradient(to top, #ED1E29, transparent);">
+  <div class="clearfix" id="head-color" style="background: #930008;background-image: linear-gradient(to top, #ED1E29, transparent);">
     <nav class="limiter text-right pad2y contain animate clearfix noprint">
       <a class="fl mb-logo" href="/"  style="color:white;background:none;"><h2>博凯实业</h2></a>
       <div id="nav">
@@ -67,13 +67,24 @@
 <script src='/static/product/js/qrcode.min.js'></script>
 <div class=''>
 <!-- Start header -->
-<div class='splash dark clearfix clip' style="background-color:black;background-image: linear-gradient(to bottom, #3A1012, transparent);">
+<div class='splash dark clearfix clip ie-gradient' style="background-color:black;background-image: linear-gradient(to bottom, #3A1012, transparent);">
     {% if case %}
     <div class="hide-in-docs hide-mobile col4 center  pin-topright fixed" style="padding-top:80px;position: fixed;">
         <div class="col6" id="qrcode" style="border: solid 8px;"></div>
         <script type="text/javascript">
           new QRCode(document.getElementById("qrcode"), window.location.href);
         </script>
+        <!--[if lte IE 8]>
+        <style type="text/css">
+          #qrcode {
+            width: auto;
+            max-width: 240px;
+          }
+          #qrcode > table{
+            margin: 0!important;
+          }
+        </style>
+        <![endif]-->
         <div class="clo6 center row4">
           <br>
           <br>
