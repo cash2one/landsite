@@ -1,3 +1,4 @@
+# -*- coding: UTF-8 -*-
 import os
 from django.utils import six
 from datetime import datetime, date
@@ -22,9 +23,9 @@ from django.contrib.contenttypes.models import ContentType
 
 @python_2_unicode_compatible
 class Category(models.Model):
-    name = models.CharField(_('Name'), max_length=255, db_index=True)
-    description = models.TextField(_('Description'), blank=True)
-    image = models.ImageField(_('Image'), upload_to='categories', blank=True,
+    name = models.CharField(_('种类名'), max_length=255, db_index=True)
+    description = models.TextField(_('描述'), blank=True)
+    image = models.ImageField(_('图片'), upload_to='categories', blank=True,
                               null=True, max_length=255)
 
     def __str__(self):
@@ -33,22 +34,22 @@ class Category(models.Model):
     class Meta:
         app_label = 'case'
         ordering = ['id']
-        verbose_name = _('Category')
-        verbose_name_plural = _('Categories')
+        verbose_name = _('种类')
+        verbose_name_plural = _('种类')
 
 @python_2_unicode_compatible
 class Case(models.Model):
-    name = models.CharField(_('Name'), max_length=128)
-    description = models.TextField(_('Description'), blank=True)
-    category = models.ForeignKey('Category', verbose_name=_("Category"))
+    name = models.CharField(_('名称'), max_length=128)
+    description = models.TextField(_('描述'), blank=True)
+    category = models.ForeignKey('Category', verbose_name=_("种类"))
     date_created = models.DateTimeField(_("Date created"), auto_now_add=True)
     date_updated = models.DateTimeField(_("Date updated"), auto_now=True, db_index=True)
 
     class Meta:
         app_label = 'case'
         ordering = ['-date_created']
-        verbose_name = _('Case')
-        verbose_name_plural = _('Cases')
+        verbose_name = _('案例')
+        verbose_name_plural = _('案例')
 
     def __str__(self):
         return self.name
@@ -73,23 +74,22 @@ class CaseImage(models.Model):
     An image of a Case
     """
     case = models.ForeignKey(
-        'Case', related_name='images', verbose_name=_("Case"))
+        'Case', related_name='images', verbose_name=_("案例"))
     original = models.ImageField(
-        _("Original"), upload_to='cases', max_length=255)
+        _("图片"), upload_to='cases', max_length=255)
 
     #: Use display_order to determine which is the "primary" image
     display_order = models.PositiveIntegerField(
-        _("Display order"), default=0,
-        help_text=_("An image with a display order of zero will be the primary"
-                    " image for a case"))
+        _("显示顺序"), default=0,
+        help_text=_("0代表主图"))
     date_created = models.DateTimeField(_("Date created"), auto_now_add=True)
 
     class Meta:
         app_label = 'case'
         ordering = ["display_order"]
         unique_together = ("case", "display_order")
-        verbose_name = _('Case image')
-        verbose_name_plural = _('Case images')
+        verbose_name = _('案例图片')
+        verbose_name_plural = _('案例图片')
 
     def __str__(self):
         return u"Image of '%s'" % self.case

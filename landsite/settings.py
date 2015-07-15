@@ -64,6 +64,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
+    'profiling.middleware.RedirectMiddleware',
 )
 
 ROOT_URLCONF = 'landsite.urls'
@@ -151,3 +152,9 @@ TINYMCE_COMPRESSOR = True
 TINYMCE_FILEBROWSER = True
 
 FILEBROWSER_DIRECTORY = "uploads/"
+<<<<<<< HEAD
+=======
+
+import re
+Redirect_USER_AGENTS = (re.compile(r'msie\s*[2-7]', re.IGNORECASE), )
+>>>>>>> 141547cf1ab0f4e6b3b9511756f743132a7f927f
