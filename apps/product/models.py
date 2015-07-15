@@ -1,3 +1,4 @@
+# -*- coding: UTF-8 -*-
 import os
 from django.utils import six
 from datetime import datetime, date
@@ -22,9 +23,9 @@ from django.contrib.contenttypes.models import ContentType
 
 @python_2_unicode_compatible
 class Category(models.Model):
-    name = models.CharField(_('Name'), max_length=255, db_index=True)
-    description = models.TextField(_('Description'), blank=True)
-    image = models.ImageField(_('Image'), upload_to='categories', blank=True,
+    name = models.CharField(_('种类名'), max_length=255, db_index=True)
+    description = models.TextField(_('描述'), blank=True)
+    image = models.ImageField(_('图片'), upload_to='categories', blank=True,
                               null=True, max_length=255)
 
     def __str__(self):
@@ -33,22 +34,22 @@ class Category(models.Model):
     class Meta:
         app_label = 'product'
         ordering = ['id']
-        verbose_name = _('Category')
-        verbose_name_plural = _('Categories')
+        verbose_name = _('种类')
+        verbose_name_plural = _('种类')
 
 @python_2_unicode_compatible
 class Product(models.Model):
-    name = models.CharField(_('Name'), max_length=128)
-    description = models.TextField(_('Description'), blank=True)
-    category = models.ForeignKey('Category', verbose_name=_("Category"))
+    name = models.CharField(_('名称'), max_length=128)
+    description = models.TextField(_('描述'), blank=True)
+    category = models.ForeignKey('Category', verbose_name=_("种类"))
     date_created = models.DateTimeField(_("Date created"), auto_now_add=True)
     date_updated = models.DateTimeField(_("Date updated"), auto_now=True, db_index=True)
 
     class Meta:
         app_label = 'product'
         ordering = ['-date_created']
-        verbose_name = _('Product')
-        verbose_name_plural = _('Products')
+        verbose_name = _('产品')
+        verbose_name_plural = _('产品')
 
     def __str__(self):
         return self.name
@@ -73,23 +74,22 @@ class ProductImage(models.Model):
     An image of a product
     """
     product = models.ForeignKey(
-        'Product', related_name='images', verbose_name=_("Product"))
+        'Product', related_name='images', verbose_name=_("产品"))
     original = models.ImageField(
-        _("Original"), upload_to='products', max_length=255)
+        _("图片"), upload_to='products', max_length=255)
 
     #: Use display_order to determine which is the "primary" image
     display_order = models.PositiveIntegerField(
-        _("Display order"), default=0,
-        help_text=_("An image with a display order of zero will be the primary"
-                    " image for a product"))
+        _("显示顺序"), default=0,
+        help_text=_("0代表主图"))
     date_created = models.DateTimeField(_("Date created"), auto_now_add=True)
 
     class Meta:
         app_label = 'product'
         ordering = ["display_order"]
         unique_together = ("product", "display_order")
-        verbose_name = _('Product image')
-        verbose_name_plural = _('Product images')
+        verbose_name = _('产品图片')
+        verbose_name_plural = _('产品图片')
 
     def __str__(self):
         return u"Image of '%s'" % self.product
@@ -111,10 +111,10 @@ class ProductImage(models.Model):
             image.save()
 
 class IndexProduct(models.Model):
-    index_image = models.ImageField(_('IndexImage'), upload_to='index_image', blank=True,
+    index_image = models.ImageField(_('首页图片'), upload_to='index_image', blank=True,
                               null=True, max_length=255)
-    product = models.ForeignKey("Product", verbose_name=_("product"))
-    description = models.TextField(_('Description'), blank=True)
+    product = models.ForeignKey("Product", verbose_name=_("产品"))
+    description = models.TextField(_('描述'), blank=True)
 
     def __str__(self):
         return self.product.name
@@ -122,14 +122,14 @@ class IndexProduct(models.Model):
     class Meta:
         app_label = "product"
         ordering = ["id"]
-        verbose_name = _("Index Product")
-        verbose_name_plural = _("Index Products")
+        verbose_name = _("首页产品")
+        verbose_name_plural = _("首页产品")
 
 from tinymce import models as tinymce_models
 
 class Mine(models.Model):
-    name = models.CharField(_('Name'), max_length=128)
-    image = models.ImageField(_('Image'), upload_to='mine', max_length=255)
+    name = models.CharField(_('名称'), max_length=128)
+    image = models.ImageField(_('Image'), upload_to='矿区', max_length=255)
     description = tinymce_models.HTMLField()
 
     def __str__(self):
@@ -138,5 +138,5 @@ class Mine(models.Model):
     class Meta:
         app_label = "product"
         ordering = ["id"]
-        verbose_name = _("Mine")
-        verbose_name_plural = _("Mines")
+        verbose_name = _("矿区")
+        verbose_name_plural = _("矿区")

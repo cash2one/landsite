@@ -17,6 +17,12 @@ $('.js-works').on('click', function(e) {
     $('html,body').animate({scrollTop: ($('#developers').offset().top - fixheader)}, 300);
 });
 
+var msie8 = function msieversion() {
+    var ua = window.navigator.userAgent;
+    var msie8 = ua.indexOf("MSIE 8.");
+    return msie8
+}
+
 $('.js-img-carousel img').each(function(i) {
     var page = document.createElement('a');
         page.className = 'dot animate inline';
@@ -43,9 +49,7 @@ $('.js-img-carousel img').each(function(i) {
     }
 
     page.onclick = function(e) {
-        e.preventDefault();
         var current = slideshow.attr('class').match(/active[1-9]+/);
-
         if (current) {
             pager.find('a').removeClass('active');
             $(this).addClass('active');
@@ -53,6 +57,11 @@ $('.js-img-carousel img').each(function(i) {
             slideshow
                 .removeClass(current[0])
                 .addClass('active' + (i + 1));
+
+            if (msie8() != -1) {
+                slideshow.find('img').css('display','none');
+                $(slideshow.find('img')[i]).css('display','block');
+            }
 
             // Reset the slideshow
             clearInterval(repeat);
@@ -74,6 +83,10 @@ setTimeout(function() {
             $img.attr('src', url);
         }     
     });
+    if (msie8() != -1) {
+        slideshow.find('img').css('display','none');
+        $(slideshow.find('img')[0]).css('display','block');
+    }
     repeat = window.setInterval(autoslide, 6000);
 }, 0);
 

@@ -1,3 +1,4 @@
+# -*- coding: UTF-8 -*-
 import os
 from django.utils import six
 from datetime import datetime, date
@@ -23,10 +24,10 @@ from django.contrib.contenttypes.models import ContentType
 from tinymce import models as tinymce_models
 
 class News(models.Model):
-    title = models.CharField(_('title'), max_length=256)
-    image = models.ImageField(_('Image'), upload_to='news', max_length=255)
-    introduction = models.TextField(_('Introduction'))
-    content = tinymce_models.HTMLField()
+    title = models.CharField(_('标题'), max_length=256)
+    image = models.ImageField(_('图片'), upload_to='news', max_length=255)
+    introduction = models.TextField(_('介绍'))
+    content = tinymce_models.HTMLField(_('内容'))
     date_created = models.DateTimeField(_("Date created"), auto_now_add=True)
     date_updated = models.DateTimeField(_("Date updated"), auto_now=True, db_index=True)
 
@@ -36,5 +37,5 @@ class News(models.Model):
     class Meta:
         app_label = "civilization"
         ordering = ["id"]
-        verbose_name = _("News")
-        verbose_name_plural = _("News")
+        verbose_name = _("文化动态")
+        verbose_name_plural = _("文化动态")
