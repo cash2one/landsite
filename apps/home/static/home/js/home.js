@@ -12,8 +12,10 @@ else {
     $('.js-fullheight').css('height', ($(window).height()*50/100));
 }
 
-if (window.screen.width < 1600) {
-    $('#qrcode').parent().css('display', 'none');
+$().ready(function () {
+    if (window.screen.width < 1600) {
+        $('#qrcode').parent().css('display', 'none');
+    }
 }
 
 $('.js-works').on('click', function(e) {
