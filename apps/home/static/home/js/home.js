@@ -16,7 +16,7 @@ $().ready(function () {
     if (window.screen.width < 1600) {
         $('#qrcode').parent().css('display', 'none');
     }
-}
+});
 
 $('.js-works').on('click', function(e) {
     e.preventDefault();
