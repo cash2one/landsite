@@ -12,12 +12,6 @@ else {
     $('.js-fullheight').css('height', ($(window).height()*50/100));
 }
 
-$().ready(function () {
-    if (window.screen.width < 1600) {
-        $('#qrcode').css('display', 'none');
-    }
-});
-
 $('.js-works').on('click', function(e) {
     e.preventDefault();
     $('html,body').animate({scrollTop: ($('#developers').offset().top - fixheader)}, 300);

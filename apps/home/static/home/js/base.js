@@ -14,4 +14,8 @@ $(document).ready(function() {
         }
         return false;
     });
+
+    if (window.screen.width < 1600) {
+        $('#qrcode').css('display', 'none');
+    };
 });
