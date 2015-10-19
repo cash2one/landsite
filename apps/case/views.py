@@ -36,6 +36,4 @@ class CaseDetailView(View):
             instance = Case.objects.get(pk=pk)
         except:
             instance = None
-        print instance
-
         return render_to_response('case/case_detail.html', {"case": instance})

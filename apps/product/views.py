@@ -44,5 +44,4 @@ class MineDetail(View):
             instance = Mine.objects.get(pk=pk)
         except:
             instance = None
-        print instance.description
         return render_to_response('product/mine_detail.html', {"mine": instance})
