@@ -12,6 +12,10 @@ else {
     $('.js-fullheight').css('height', ($(window).height()*50/100));
 }
 
+if (window.screen.width < 1600) {
+    $('#qrcode').parent().css('display', 'none');
+}
+
 $('.js-works').on('click', function(e) {
     e.preventDefault();
     $('html,body').animate({scrollTop: ($('#developers').offset().top - fixheader)}, 300);
@@ -74,7 +78,7 @@ setTimeout(function() {
     $('.js-defer-src').each(function(i, node) {
         var $img = $(node);
         var pre_url = "static/home/img/";
-        if (window.screen.width > 640) {
+        if (window.screen.width > 768) {
             url = pre_url + $img.data('src');
             $img.attr('src', url);
         }
