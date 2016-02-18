@@ -36,6 +36,6 @@ class News(models.Model):
 
     class Meta:
         app_label = "civilization"
-        ordering = ["id"]
+        ordering = ["-id"]
         verbose_name = _("文化动态")
         verbose_name_plural = _("文化动态")
